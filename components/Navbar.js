@@ -20,7 +20,6 @@ export const Navbar = () => {
       // List inbox notifications
       const inboxNotifications = await userAlice.notification.list("INBOX");
       setInboxNotifications(inboxNotifications);
-      console.log(inboxNotifications)
 
       const pushChannelAdress = "0xfa7DAd30cEC36F38c124dA6bCD6DB884EA8d78d4";
 

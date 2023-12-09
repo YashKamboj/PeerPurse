@@ -12,20 +12,12 @@ export const CreateContract = ({ contractAddress }) => {
   const [numInstallments, setNumInstallments] = useState('');
 
   const { data, isLoading, isSuccess, write } = useContractWrite({
-    address: '0x6eA5f433495fbc04C65aF98A1c3e68Cb20f282C5',
+    address: contractAddress,
     abi: abi,
     functionName: 'createLoanAgreement',
     args: [borrower, loanAmount, numInstallments]
   });
 
-  const handleSomething = async() => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-
-
-    const signer_details = provider.getSigner();
-
-    console.log(signer_details)
-  }
 
   const handleSuccess = async() => {
     const signer = new ethers.Wallet('e392d9c845d8d286b573c261ee9a1606beb82534faad330746e2078237383b9e')
@@ -50,13 +42,12 @@ export const CreateContract = ({ contractAddress }) => {
       });
 
       const inboxNotifications = await userAlice.notification.list("INBOX");
-      console.log(JSON.stringify(inboxNotifications) )
 
       const stream = await userAlice.initStream([CONSTANTS.STREAM.NOTIF]);
 
       // Set stream event handling
       stream.on(CONSTANTS.STREAM.NOTIF, (data) => {
-        console.log(data);
+        // console.log(data);
       });
 
       // Connect to stream
@@ -103,7 +94,7 @@ export const CreateContract = ({ contractAddress }) => {
       {/* <Button colorScheme="indigo" onClick={() => write()}>
         Create Loan Agreement
       </Button> */}
-      <button  onClick={() => handleSuccess()} style={styles.paymentButton} >Create Loan Agreement</button>
+      <button  onClick={() => write()} style={styles.paymentButton} >Create Loan Agreement</button>
       {isLoading && <div>Transaction in progress...</div>}
       {isSuccess && <div>Transaction: {JSON.stringify(data)} {handleSuccess()}</div>}
     </Stack>
