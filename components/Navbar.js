@@ -20,8 +20,12 @@ export const Navbar = () => {
       // List inbox notifications
       const inboxNotifications = await userAlice.notification.list("INBOX");
       setInboxNotifications(inboxNotifications);
+      console.log(inboxNotifications)
 
       const pushChannelAdress = "0xfa7DAd30cEC36F38c124dA6bCD6DB884EA8d78d4";
+
+      const aliceSubscriptions = await userAlice.notification.subscriptions();
+      
 
       // Subscribe to push channel
       await userAlice.notification.subscribe(
@@ -100,19 +104,29 @@ const NavLink = ({ href, children }) => (
 const NotificationsPopup = ({ notifications }) => (
   <Box
     position="absolute"
-    top="13rem"
+    top="4.5rem"
     width='20rem'
-   marginLeft='18rem'
-    bg="Grey"
+   marginLeft='23rem'
+   bg="#1a202c"
     p={4}
     boxShadow="md"
     borderRadius="md"
+    border="1px solid #33404d"
   >
-    <Text fontWeight="bold" mb={2}>
+    {/* <Text fontWeight="bold" mb={2}>
       Notifications
-    </Text>
+    </Text> */}
     {notifications.map((notification, index) => (
+      <Box
+      key={index}
+      p={3}
+      mb={2}
+      bg="#33404d"
+      borderRadius="md"
+      boxShadow="sm"
+    >
       <Text key={index}>{notification.message}</Text>
+      </Box>
     ))}
   </Box>
 );
