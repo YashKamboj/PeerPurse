@@ -75,7 +75,8 @@ export const CreateContract = ({ contractAddress }) => {
 
   return (
     <>
-    <Stack border={'1px white #fff '} borderColor={'#fff'} padding={5} margin={5} width={1000} borderRadius={'2xl'}>
+    <Stack border={'1px white #fff '} borderColor={'#fff'} padding={5} margin={5} width={1230} borderRadius={'2xl'}>
+      <h1 style={{fontSize:"3rem", marginBottom:"1rem", color: "#2596be"}}>Create Contract</h1>
     <p><b>Borrower's Address:</b></p>  <Input
         value={borrower}
         onChange={(e) => setBorrower(e.target.value)}
@@ -102,10 +103,24 @@ export const CreateContract = ({ contractAddress }) => {
       {/* <Button colorScheme="indigo" onClick={() => write()}>
         Create Loan Agreement
       </Button> */}
-      <button  onClick={() => handleSuccess()}>Create Loan Agreement</button>
+      <button  onClick={() => handleSuccess()} style={styles.paymentButton} >Create Loan Agreement</button>
       {isLoading && <div>Transaction in progress...</div>}
       {isSuccess && <div>Transaction: {JSON.stringify(data)} {handleSuccess()}</div>}
     </Stack>
     </>
   );
+};
+
+
+const styles = {
+  paymentButton: {
+    marginTop: '10px',
+    background: '#0d76fc',
+    color: '#fff',
+    border: 'none',
+    padding: '8px 16px',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: "2rem"
+  },
 };

@@ -78,14 +78,8 @@ function MyApp({ Component, pageProps }) {
         <ThorinGlobalStyles />
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains}>
-            <Box minH="100vh" bg="#282c34" color="white" display="flex" flexDirection="column">
-              <Flex as="header" p="1.5rem" borderBottom="1px solid #444c5d" bg="#1e232b" align="center" justify="center" direction="column">
-                <Heading fontSize="2rem" color="#61dafb">
-                  PeerPurse
-                </Heading>
-                <Text color="white">Lending and Borrowing Made Easy</Text>
-              </Flex>
-              <Flex as="main" flex="1" p="1.5rem" align="center" direction="column">
+            <Box minH="100vh"  bg="#282c34" color="white" display="flex" flexDirection="column">
+              <Flex as="main" flex="1"  align="center" direction="column">
                 <Component {...pageProps} />
               </Flex>
               <Box as="footer" p="1rem" borderTop="1px solid #444c5d" bg="#1e232b" textAlign="center">

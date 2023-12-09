@@ -53,18 +53,18 @@ export const Navbar = () => {
 
 
   return (
-    <Box bg="#1a202c" p={4}>
-      <HStack spacing={8} justify="space-between">
+    <Box bg="rgba(255, 255, 255, 0.8)" p={4} borderRadius={16} position={"absolute"} marginTop={"2rem"}>
+      <HStack spacing={12} justify="space-between">
         <Link
           href="/"
-          color="white"
-          fontSize="lg"
+          color="#344767"
+          fontSize="2rem"
           fontWeight="bold"
           _hover={{ textDecoration: "none" }}
         >
           PeerPurse
         </Link>
-        <HStack spacing={4}>
+        <HStack spacing={8}>
           <NavLink href="/">Home</NavLink>
           <NavLink href="/create">Create Contract</NavLink>
           <NavLink href="/list">Contract List</NavLink>
@@ -89,8 +89,8 @@ export const Navbar = () => {
 const NavLink = ({ href, children }) => (
   <Link
     href={href}
-    color="white"
-    fontSize="md"
+    color="#344767"
+    fontSize="large"
     _hover={{ textDecoration: "underline" }}
   >
     {children}

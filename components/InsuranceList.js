@@ -16,6 +16,7 @@ export const InsuranceList = ({ contractAddress }) => {
   useEffect(() => {
     if (getLoanAgreements) {
       setLoanList(getLoanAgreements);
+      console.log(getLoanAgreements)
     }
   }, [getLoanAgreements]);
 
@@ -45,16 +46,24 @@ export const InsuranceList = ({ contractAddress }) => {
     }
   };
 
+  const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp * 1000); // Convert to milliseconds
+    return date.toLocaleString(); // Use appropriate locale and options
+  };
+
   return (
-    <div>
+    <div style={styles.container}>
+      <h1 style={styles.heading} >Contract List</h1>
       <div style={styles.cardContainer}>
         {loanList.length > 0 ? (
           loanList.map((data, index) => (
             <div key={index} style={styles.card}>
-              <p><b>Borrower's Address</b>{data.borrower}</p>
-              <p><b>Lender's Address</b>{data.lender}</p>
-              <p><b>Amount</b>{data.loanStartDate}</p>
-              <p>{Number(data.loanAmount)}</p>
+              <p><b>Borrower's Address: </b>{data.borrower}</p>
+              <p><b>Lender's Address: </b>{data.lender}</p>
+              <p><b>Amount: </b>{Number(data.loanAmount)}</p>
+              <p><b>Number of installments: </b>{Number(data.numInstallments)}</p>
+              <p><b>Date of transaction: </b>{formatTimestamp(Number(data.loanStartDate))}</p>
+              <p><b>Next Due Date: </b>{formatTimestamp(Number(data.nextDueDate))}</p>
               <button onClick={() => handleMakePayment(index)} style={styles.paymentButton}>
                 Make Payment
               </button>
@@ -69,6 +78,19 @@ export const InsuranceList = ({ contractAddress }) => {
 };
 
 const styles = {
+  container: {justifyContent: 'center',
+  padding: '2rem 12rem',
+
+  
+  
+},
+heading: {
+  marginLeft: "1rem",
+  fontSize:"3rem",
+  color: "#2596be",
+  marginBottom:"3rem"
+  },
+  
   cardContainer: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -77,7 +99,7 @@ const styles = {
   },
   card: {
     margin: '10px',
-    padding: '16px',
+    padding: '10px',
     border: '1px solid #ddd',
     borderRadius: '8px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Add shadow to each card

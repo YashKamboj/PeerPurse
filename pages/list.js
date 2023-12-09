@@ -11,6 +11,7 @@ const list = () => {
   return (
     <>
       <Navbar />
+      <img src='https://finsfunding.com/wp-content/uploads/2018/07/AlternativeLending_FINS_Funding.png' style={{width: "100rem", maxHeight: "45rem"}} alt='Img' />
       <InsuranceList contractAddress={contractAddress} />
     </>
   );

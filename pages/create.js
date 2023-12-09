@@ -10,6 +10,7 @@ const create = () => {
   return (
     <>
       <Navbar />
+      <img src='https://www.debt.org/wp-content/uploads/2018/09/Peer-to-peer-Lending.png' style={{width: "100rem", maxHeight: "45rem"}} alt='Img' />
         <CreateContract contractAddress={contractAddress} />
     </>
   );
