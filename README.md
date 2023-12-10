@@ -14,6 +14,9 @@
 
 ![WhatsApp Image 2023-12-10 at 08 46 36](https://github.com/YashKamboj/PeerPurse/assets/75125203/abc1956a-e69b-4aa3-828f-cdc332f8fd5e)
 
+<h2>Contract Address:</h2>
+polygon: 0x6eA5f433495fbc04C65aF98A1c3e68Cb20f282C5
+
 Base : 0x2e137b830782826328D94f0AC5848Ce08f25f547
 Arbitrum : 0x2e137b830782826328d94f0ac5848ce08f25f547
 Scroll : 0x9814fb375038645C868B7F680C67f7B8bC60A229
