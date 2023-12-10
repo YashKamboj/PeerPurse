@@ -1,5 +1,5 @@
 <h1>PeerPurse</h1>
-![logo PeerPurse](https://github.com/YashKamboj/PeerPurse/assets/75125203/7034f5de-638e-4873-8fb8-77cb10e4f8cc)
+
 
 <b>Lending and Borrowing among friends and family can be awkward, join PeerPurse to save yourself from having that uncomfortable talk and protect your financial interests without straining relationships. </b>
 
